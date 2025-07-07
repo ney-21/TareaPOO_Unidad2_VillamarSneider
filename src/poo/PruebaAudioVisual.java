@@ -5,7 +5,9 @@ import uni1a.*;
 public class PruebaAudioVisual {
 
     public static void main(String[] args) {
-        System.out.println("🎬 Sistema de Gestión de Contenidos Audiovisuales\n");
+    	System.out.println("==============================================");
+    	System.out.println("🎬 Bienvenido al Sistema de Gestión de Contenidos Audiovisuales");
+    	System.out.println("==============================================\n");
 
         // Crear instancias
         ContenidoAudiovisual[] contenidos = new ContenidoAudiovisual[6];
