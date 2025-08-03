@@ -104,11 +104,11 @@ Finaliza y abre App.java para ejecutar
 
 Ejemplo de salida esperada:
 
+```plaintext
 ==============================================
 🎬 Bienvenido al Sistema de Gestión de Contenidos Audiovisuales
 ==============================================
 1. Ver todos los contenidos
 2. Buscar películas por actor
 3. Salir
-
-
+```
