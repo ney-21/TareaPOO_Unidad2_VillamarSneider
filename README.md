@@ -44,19 +44,21 @@ Este proyecto implementa un sistema de gestión de contenidos audiovisuales util
 ---
 
 ## 📂 Estructura del proyecto
+```plaintext
 poo_unidad2/
 ├── src/
-│ ├── uni1a/ # Modelos
-│ ├── uni1a/archivos/ # Lectura y escritura CSV
-│ ├── uni1a/interfaces/ # Interfaces SOLID
-│ ├── uni1a/servicios/ # Lógica del sistema
-│ ├── uni1a/controlador/ # Controlador MVC
-│ └── uni1a/vista/ # Menú por consola
+│   ├── uni1a/              # Modelos
+│   ├── uni1a/archivos/     # Lectura y escritura CSV
+│   ├── uni1a/interfaces/   # Interfaces SOLID
+│   ├── uni1a/servicios/    # Lógica del sistema
+│   ├── uni1a/controlador/  # Controlador MVC
+│   └── uni1a/vista/        # Menú por consola
 │
 ├── test/
-│ └── uni1a/ # Pruebas unitarias con JUnit 5
+│   └── uni1a/              # Pruebas unitarias con JUnit 5
 │
-└── App.java # Clase main (MVC inyectado)
+└── App.java                # Clase main (MVC inyectado)
+```
 
 ---
 
@@ -90,18 +92,17 @@ Para ejecutarlas:
 
 ## 🛠️ Instrucciones de instalación
 
-### 📥 Clonar el repositorio
-```bash
+## 📥 Clonar el repositorio
+
 git clone https://github.com/ney-21/TareaPOO_Unidad2_VillamarSneider.git
 
-🧩 Importar en Eclipse
-File → Import → Existing Projects into Workspace
+🧩 Importar en Eclipse  
+File → Import → Existing Projects into Workspace  
 
-Selecciona la carpeta clonada
-
+Selecciona la carpeta clonada  
 Finaliza y abre App.java para ejecutar
 
-🎯 Ejemplo de salida esperada
+Ejemplo de salida esperada:
 
 ==============================================
 🎬 Bienvenido al Sistema de Gestión de Contenidos Audiovisuales
