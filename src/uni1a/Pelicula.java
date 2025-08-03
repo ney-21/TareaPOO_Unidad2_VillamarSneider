@@ -1,12 +1,12 @@
-/**
- * Class Pelicula
- */
 package uni1a;
+
+import uni1a.interfaces.Mostrable;
+import uni1a.interfaces.GuardableCSV;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pelicula extends ContenidoAudiovisual {
+public class Pelicula extends ContenidoAudiovisual implements Mostrable, GuardableCSV {
     private String estudio;
     private List<Actor> actores = new ArrayList<>();
 
@@ -33,20 +33,24 @@ public class Pelicula extends ContenidoAudiovisual {
 
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles de la película:");
+        System.out.println("🎬 Película:");
         System.out.println("ID: " + getId());
         System.out.println("Título: " + getTitulo());
-        System.out.println("Duración en minutos: " + getDuracionEnMinutos());
+        System.out.println("Duración: " + getDuracionEnMinutos() + " min");
         System.out.println("Género: " + getGenero());
         System.out.println("Estudio: " + estudio);
-        
         if (!actores.isEmpty()) {
             System.out.println("Actores:");
-            for (Actor actor : actores) {
-                System.out.println("- " + actor.getNombre());
+            for (Actor a : actores) {
+                System.out.println("- " + a.getNombre());
             }
         }
-
         System.out.println();
     }
+
+    @Override
+    public String toCSV() {
+        return getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero() + "," + estudio;
+    }
 }
+

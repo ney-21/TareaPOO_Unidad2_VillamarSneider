@@ -1,9 +1,9 @@
-/**
- * Class Documental
- */
 package uni1a;
 
-public class Documental extends ContenidoAudiovisual {
+import uni1a.interfaces.Mostrable;
+import uni1a.interfaces.GuardableCSV;
+
+public class Documental extends ContenidoAudiovisual implements Mostrable, GuardableCSV {
     private String tema;
     private Investigador investigador;
 
@@ -30,18 +30,21 @@ public class Documental extends ContenidoAudiovisual {
 
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles del documental:");
+        System.out.println("📚 Documental:");
         System.out.println("ID: " + getId());
         System.out.println("Título: " + getTitulo());
-        System.out.println("Duración en minutos: " + getDuracionEnMinutos());
+        System.out.println("Duración: " + getDuracionEnMinutos() + " min");
         System.out.println("Género: " + getGenero());
         System.out.println("Tema: " + tema);
-
         if (investigador != null) {
-            System.out.println("Investigador: " + investigador.getNombre() +
-                               " - Campo: " + investigador.getCampoInvestigacion());
+            System.out.println("Investigador: " + investigador.getNombre() + " (" + investigador.getCampoInvestigacion() + ")");
         }
-
         System.out.println();
     }
+
+    @Override
+    public String toCSV() {
+        return getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero() + "," + tema;
+    }
 }
+

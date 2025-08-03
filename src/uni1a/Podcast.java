@@ -1,6 +1,9 @@
 package uni1a;
 
-public class Podcast extends ContenidoAudiovisual {
+import uni1a.interfaces.Mostrable;
+import uni1a.interfaces.GuardableCSV;
+
+public class Podcast extends ContenidoAudiovisual implements Mostrable, GuardableCSV {
     private String conductor;
     private String plataforma;
 
@@ -28,13 +31,19 @@ public class Podcast extends ContenidoAudiovisual {
 
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles del podcast:");
+        System.out.println("🎧 Podcast:");
         System.out.println("ID: " + getId());
         System.out.println("Título: " + getTitulo());
-        System.out.println("Duración: " + getDuracionEnMinutos() + " minutos");
+        System.out.println("Duración: " + getDuracionEnMinutos() + " min");
         System.out.println("Género: " + getGenero());
         System.out.println("Conductor: " + conductor);
         System.out.println("Plataforma: " + plataforma);
         System.out.println();
     }
+
+    @Override
+    public String toCSV() {
+        return getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero() + "," + conductor + "," + plataforma;
+    }
 }
+

@@ -1,6 +1,9 @@
 package uni1a;
 
-public class VideoTikTok extends ContenidoAudiovisual {
+import uni1a.interfaces.Mostrable;
+import uni1a.interfaces.GuardableCSV;
+
+public class VideoTikTok extends ContenidoAudiovisual implements Mostrable, GuardableCSV {
     private String usuario;
     private boolean tieneMusica;
 
@@ -28,13 +31,18 @@ public class VideoTikTok extends ContenidoAudiovisual {
 
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles del video de TikTok:");
+        System.out.println("📱 Video TikTok:");
         System.out.println("ID: " + getId());
         System.out.println("Título: " + getTitulo());
-        System.out.println("Duración: " + getDuracionEnMinutos() + " segundos");
+        System.out.println("Duración: " + getDuracionEnMinutos() + " seg");
         System.out.println("Género: " + getGenero());
         System.out.println("Usuario: @" + usuario);
         System.out.println("Con música: " + (tieneMusica ? "Sí" : "No"));
         System.out.println();
+    }
+
+    @Override
+    public String toCSV() {
+        return getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero() + "," + usuario + "," + tieneMusica;
     }
 }

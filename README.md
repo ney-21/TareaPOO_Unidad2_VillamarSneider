@@ -1,75 +1,113 @@
-
 # 🎬 Sistema de Gestión de Contenidos Audiovisuales
 
 ## Objetivo
-Este proyecto implementa un sistema de gestión de contenidos audiovisuales utilizando conceptos avanzados de Programación Orientada a Objetos (POO) en Java, como herencia, asociación, agregación y composición.
 
-## Clases y Funcionalidades Nuevas
+Este proyecto implementa un sistema de gestión de contenidos audiovisuales utilizando conceptos avanzados de **Programación Orientada a Objetos (POO)** en Java. A lo largo de sus etapas se integran:
 
-✔ **Actor**: Relacionado con Película, permite asociar actores.  
-✔ **Temporada**: Relacionado con SerieDeTV, representa las temporadas de una serie.  
-✔ **Investigador**: Relacionado con Documental, indica el investigador asociado.  
-✔ **VideoTikTok**: Nueva subclase de ContenidoAudiovisual, representa videos cortos.  
-✔ **Podcast**: Nueva subclase de ContenidoAudiovisual, representa podcasts.  
+- Herencia, asociación, agregación y composición
+- Principios **SOLID**
+- Patrón de arquitectura **MVC**
+- Manejo de archivos **CSV**
+- Pruebas unitarias con **JUnit 5**
 
-## Instrucciones de Instalación y Uso
+---
+
+## 📦 Clases y Funcionalidades
+
+✔ **Actor**: Relacionado con Película  
+✔ **Temporada**: Relacionado con SerieDeTV  
+✔ **Investigador**: Relacionado con Documental  
+✔ **VideoTikTok** y **Podcast**: Nuevas subclases  
+✔ **ContenidoService**: Servicio que controla lógica de búsqueda y visualización  
+✔ **ArchivoX.java**: Guardado y lectura de cada tipo en CSV  
+✔ **JUnit Tests**: Pruebas unitarias para modelos y servicios
+
+---
+
+## 🧠 Diseño (Unidad 4)
+
+### ✅ Principios SOLID implementados
+
+- **SRP**: Cada clase tiene una responsabilidad clara  
+- **OCP**: Uso de clases abstractas e interfaces (`ContenidoAudiovisual`, `IContenidoService`)  
+- **LSP**: Todas las subclases son sustituibles  
+- **ISP**: Interfaces como `Mostrable`, `GuardableCSV`  
+- **DIP**: Controlador depende de `IContenidoService`, no de la implementación concreta  
+
+### ✅ Patrón MVC aplicado
+
+- **Modelo**: Clases como `Pelicula`, `Podcast`, `SerieDeTV`  
+- **Vista**: Clase `MenuConsola` para interacción por consola  
+- **Controlador**: Clase `ContenidoController`  
+- **App.java**: Punto de entrada con inyección de dependencias
+
+---
+
+## 📂 Estructura del proyecto
+poo_unidad2/
+├── src/
+│ ├── uni1a/ # Modelos
+│ ├── uni1a/archivos/ # Lectura y escritura CSV
+│ ├── uni1a/interfaces/ # Interfaces SOLID
+│ ├── uni1a/servicios/ # Lógica del sistema
+│ ├── uni1a/controlador/ # Controlador MVC
+│ └── uni1a/vista/ # Menú por consola
+│
+├── test/
+│ └── uni1a/ # Pruebas unitarias con JUnit 5
+│
+└── App.java # Clase main (MVC inyectado)
+
+---
+
+## ▶️ Cómo ejecutar
+
+1. Abre el proyecto en Eclipse  
+2. Ejecuta `App.java` (clic derecho → Run As → Java Application)  
+3. Usa el menú en consola para:
+   - Mostrar todos los contenidos
+   - Buscar películas por nombre de actor
+   - Salir del sistema
+
+---
+
+## 🧪 Pruebas unitarias (JUnit 5)
+
+### Clases con prueba unitaria:
+- ✅ `PeliculaTest`
+- ✅ `SerieDeTVTest`
+- ✅ `PodcastTest`
+- ✅ `DocumentalTest`
+- ✅ `VideoTikTokTest`
+- ✅ `ContenidoServiceTest`
+- ✅ `ArchivoPeliculaTest`
+
+Para ejecutarlas:
+- Clic derecho en la carpeta `test/` → Run As → JUnit Test  
+- Todas deben pasar (✔ verde)
+
+---
+
+## 🛠️ Instrucciones de instalación
 
 ### 📥 Clonar el repositorio
-En tu terminal o Git Bash, ejecuta:
+```bash
+git clone https://github.com/ney-21/TareaPOO_Unidad2_VillamarSneider.git
 
-```https://github.com/ney-21/TareaPOO_Unidad2_VillamarSneider.git```
+🧩 Importar en Eclipse
+File → Import → Existing Projects into Workspace
 
-### 🛠️ Importar el proyecto en Eclipse
+Selecciona la carpeta clonada
 
-1. Abre Eclipse.  
-2. Selecciona **File → Import → Existing Projects into Workspace**.  
-3. Navega hasta la carpeta del proyecto que clonaste.  
-4. Asegúrate que el proyecto aparezca seleccionado y haz clic en **Finish**.  
+Finaliza y abre App.java para ejecutar
 
-### ▶️ Ejecutar la aplicación
+🎯 Ejemplo de salida esperada
 
-1. Dentro de Eclipse, ubica el archivo `PruebaAudioVisual.java` en el paquete `poo`.  
-2. Haz clic derecho sobre el archivo y selecciona **Run As → Java Application**.  
-3. Se mostrará la información por consola, incluyendo:
-   - Detalles de todos los contenidos audiovisuales.  
-   - Información de actores, temporadas e investigadores.  
-   - Ejemplo de búsqueda de películas por nombre de actor.  
-
-### ⚙️ Requisitos
-
-- Tener Java instalado (versión 8 o superior).  
-- Eclipse o cualquier IDE compatible con Java.  
-
-### 🎯 Ejemplo de salida esperada
-
-```plaintext
 ==============================================
 🎬 Bienvenido al Sistema de Gestión de Contenidos Audiovisuales
 ==============================================
+1. Ver todos los contenidos
+2. Buscar películas por actor
+3. Salir
 
-🧾 Mostrando todos los contenidos audiovisuales:
-Detalles de la película:
-ID: 0
-Título: Avatar
-Duración en minutos: 125
-Género: Acción
-Estudio: 20th Century Studios
-Actores:
-- Leonardo Wilhelm DiCaprio
-- Kate Winslet
-...
-🔍 Buscando películas con el actor: Leonardo Wilhelm DiCaprio
-🎞 Avatar incluye al actor Leonardo Wilhelm DiCaprio
-🎞 Inception incluye al actor Leonardo Wilhelm DiCaprio
-```
 
-## Mejoras Adicionales
-
-✔ Uso de listas para almacenar actores, temporadas, etc.  
-✔ Búsqueda de películas por nombre de actor.  
-✔ Ejemplos de reutilización de objetos.  
-
-## Autor
-
-*Sneider Villamar Peñafiel*  
-*Universidad Politécnica Salesiana*  
